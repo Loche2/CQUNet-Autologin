@@ -1,4 +1,3 @@
-import os
 import subprocess
 import time
 
@@ -36,8 +35,8 @@ def login(username, password):
 
 
 def is_online():
-    # 使用subprocess.run来替代os.system，并且将输出重定向到/dev/null或nul
-    result = subprocess.run(['ping', 'baidu.com'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    result = subprocess.run(['ping', 'baidu.com'],
+                            stdout=subprocess.PIPE, stderr=subprocess.PIPE, creationflags=subprocess.CREATE_NO_WINDOW)
     # 检查返回码来确定是否在线
     return result.returncode == 0
 
@@ -61,4 +60,4 @@ def always_online(username, password, check_interval):
 if __name__ == "__main__":
     username = 'your_username'
     password = 'your_password'
-    always_online(username, password, check_interval=300)
+    always_online(username, password, check_interval=20)
