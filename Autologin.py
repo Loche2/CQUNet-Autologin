@@ -60,4 +60,4 @@ def always_online(username, password, check_interval):
 if __name__ == "__main__":
     username = 'your_username'
     password = 'your_password'
-    always_online(username, password, check_interval=20)
+    always_online(username, password, check_interval=300)
