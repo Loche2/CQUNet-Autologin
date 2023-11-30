@@ -8,7 +8,7 @@
 在Autologin.py文件中，修改为你的用户名和密码，使用以下命令：
 
 ```
-pip install -r requirement.txt
+pip install -r requirements.txt
 python Autologin.py
 ```
 
