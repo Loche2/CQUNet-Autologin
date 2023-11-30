@@ -12,7 +12,7 @@ pip install -r requirements.txt
 python Autologin.py
 ```
 
-## 设置开机自启动
+## 设置开机自启动(可选)
 
 1. 通过以下命令打包为exe：
 
