@@ -18,6 +18,6 @@ python Autologin.py
 
    `pyinstaller --onefile --noconsole Autologin.py`
 
-2. 给打包好的exe创建快捷方式，并放入启动项(运行以下命令打开)中：
+2. 给打包好的exe创建快捷方式，并放入启动项(命令行运行以下命令打开)中：
 
    `shell:startup`
