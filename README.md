@@ -18,7 +18,7 @@ python Autologin.py
 
 1. 通过以下命令打包为exe：
 
-   `pyinstaller --onefile --noconsole Autologin.py`
+   `pyinstaller --onefile --noconsole --add-data "config.ini;." Autologin.py`
 
 2. 给打包好的exe创建快捷方式，并放入启动项(命令行运行以下命令打开)中：
 
