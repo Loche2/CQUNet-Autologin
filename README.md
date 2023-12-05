@@ -5,11 +5,11 @@
 
 ## 使用方法（release）
 
-下载并解压release版，在config.ini配置文件中，修改为你的用户名和密码以及推送加Token（可删除），双击Autologin.exe运行
+下载并解压release版，在config.ini配置文件中，修改为你的用户名和密码以及推送加Token（可不填），双击Autologin.exe运行
 
 ## 使用方法（code）
 
-在config.ini配置文件中，修改为你的用户名和密码以及推送加Token（可删除），使用以下命令：
+在config.ini配置文件中，修改为你的用户名和密码以及推送加Token（可不填），使用以下命令：
 
 ```
 pip install -r requirements.txt
