@@ -23,3 +23,8 @@ python Autologin.py
 2. 给打包好的exe创建快捷方式，并放入启动项(命令行运行以下命令打开)中：
 
    `shell:startup`
+
+3. 将修改后的config.ini文件复制到生成的Autologin.exe目录下（如下）：
+
+   `/dist/Autologin.exe
+   /dist/config.ini`
