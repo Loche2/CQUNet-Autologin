@@ -70,10 +70,16 @@ def always_online(username, password, check_interval):
 # 通过推送加API发送当前IP地址
 def send_IP():
     IP = socket.gethostbyname(socket.gethostname())
+    # 获取config里的token
+    token = config['Credentials']['token']
+    # 检查token是否为空
+    if not token or token == 'your_pushplus_token':
+        print("Token is empty in the configuration file.")
+        return
     # 推送加请求地址目标URL
     url = 'https://www.pushplus.plus/send/'
     # POST请求的数据
-    data = {'token': config['Credentials']['token'],
+    data = {'token': token,
             'title': f'{socket.gethostname()}-IP',
             'content': str(IP)
             }
