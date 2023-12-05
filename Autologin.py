@@ -1,14 +1,20 @@
+import configparser
+import socket
 import subprocess
 import time
 
+import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+
+config = configparser.ConfigParser()
+config.read('config.ini')
 
 
 # noinspection PyBroadException
 def login(username, password):
     browser = webdriver.Edge()
-    # browser.maximize_window()
+    browser.maximize_window()
     time.sleep(1)
 
     def element(e):
@@ -45,7 +51,9 @@ def is_online():
 def always_online(username, password, check_interval):
     try:
         login(username, password)
+        IP = send_IP()
     except Exception:
+        IP = '404'
         pass
 
     while 1:
@@ -53,11 +61,27 @@ def always_online(username, password, check_interval):
         if not is_online():
             try:
                 login(username, password)
+                if IP != socket.gethostbyname(socket.gethostname()):
+                    IP = send_IP()
             except Exception:
                 pass
 
 
+# 通过推送加API发送当前IP地址
+def send_IP():
+    IP = socket.gethostbyname(socket.gethostname())
+    # 推送加请求地址目标URL
+    url = 'https://www.pushplus.plus/send/'
+    # POST请求的数据
+    data = {'token': config['Credentials']['token'],
+            'title': f'{socket.gethostname()}-IP',
+            'content': str(IP)
+            }
+    print(data)
+    # 发送POST请求
+    requests.post(url, data)
+    return IP
+
+
 if __name__ == "__main__":
-    username = 'your_username'
-    password = 'your_password'
-    always_online(username, password, check_interval=300)
+    always_online(config['Credentials']['username'], config['Credentials']['password'], check_interval=300)
