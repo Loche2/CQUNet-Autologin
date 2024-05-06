@@ -22,6 +22,10 @@ python Autologin.py
 
 ## 设置开机自启动(可选)
 
+通过以下命令打包为exe：
+
+`pyinstaller --onefile --noconsole --add-data "config.ini;." Autologin.py`
+
 给Autologin.exe创建快捷方式，并放入启动项文件夹(win+R运行以下命令打开)中：
 
 `shell:startup`
