@@ -21,7 +21,7 @@ def login(username, password):
         return browser.find_element(By.CSS_SELECTOR, f'input.edit_lobo_cell[name="{e}"]')
 
     try:
-        browser.get('https://login.cqu.edu.cn/')
+        browser.get('http://10.254.7.4/')
         time.sleep(3)
         try:
             if element('logout'):
@@ -41,7 +41,7 @@ def login(username, password):
 
 
 def is_online():
-    result = subprocess.run(['ping', 'baidu.com'],
+    result = subprocess.run(['ping', 'www.baidu.com'],
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, creationflags=subprocess.CREATE_NO_WINDOW)
     # 检查返回码来确定是否在线
     return result.returncode == 0
